@@ -1,44 +1,25 @@
-import { initThemeToggle } from './theme.js';
-import { initProjectFilters } from './projects.js';
-import { initContactForm } from './form.js';
-import { initAnimations } from './animations.js';
-import { initMobileMenu } from './mobileMenu.js';
-import { initLanguage } from './i18n.js';
+// Import other JS modules
+import './navigation.js';
+import './projects.js';
+import './animations.js';
+import './contact.js';
 
-// Initialize all modules
+// Theme toggler
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize theme toggle functionality
-  initThemeToggle();
+  const themeToggle = document.getElementById('theme-toggle');
   
-  // Initialize project filtering
-  initProjectFilters();
+  // Check for saved theme preference or use device preference
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   
-  // Initialize contact form
-  initContactForm();
+  if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+    document.body.classList.add('dark-mode');
+  }
   
-  // Initialize animations
-  initAnimations();
-  
-  // Initialize mobile menu
-  initMobileMenu();
-  
-  // Initialize language switcher
-  initLanguage();
-  
-  // Handle header scroll effect
-  initHeaderScroll();
-});
-
-// Header scroll effect
-function initHeaderScroll() {
-  const header = document.getElementById('header');
-  const scrollThreshold = 100;
-  
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > scrollThreshold) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
+  // Theme toggle functionality
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
   });
-}
+});

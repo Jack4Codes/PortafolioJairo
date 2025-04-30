@@ -1,0 +1,29 @@
+/* Color Variables */
+:root {
+  /* Base colors */
+  --accent-color: #6366F1; /* Indigo */
+  --accent-color-light: rgba(99, 102, 241, 0.1);
+  
+  /* Light theme (default) */
+  --bg-color: #ffffff;
+  --bg-color-secondary: #f8f9fa;
+  --bg-color-hover: rgba(0, 0, 0, 0.05);
+  --text-color: #333333;
+  --text-color-muted: #6c757d;
+  --border-color: #e2e8f0;
+  
+  /* Additional colors */
+  --success-color: #10B981;
+  --warning-color: #F59E0B;
+  --error-color: #EF4444;
+}
+
+/* Dark theme */
+.dark-mode {
+  --bg-color: #121212;
+  --bg-color-secondary: #1e1e1e;
+  --bg-color-hover: rgba(255, 255, 255, 0.05);
+  --text-color: #f8f9fa;
+  --text-color-muted: #adb5bd;
+  --border-color: #2d3748;
+}
